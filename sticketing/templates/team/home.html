@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1>Welcome Team</h1>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h6>Tickets</h6>
+                <div class="container">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Ticket No.</th>
+                                <th>Opened By:</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ticket in tickets %}
+                            <tr>
+                               <td>{{ticket.id}}</td>
+                               <td>{{ticket.opened_by}}</td>
+                               <td>{{ticket.opened_on}}</td>
+                               <td>Take | View</td>
+                             </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

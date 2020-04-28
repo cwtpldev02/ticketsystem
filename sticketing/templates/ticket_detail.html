@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<h1> Your Ticket:</h1>
+
+    <ul>
+        <li>Ticket Id: {{ticket.id}}</li>
+        <li>Opened by: {{ticket.opened_by}}</li>
+        <li>Opened On: {{ticket.opened_on}}</li>
+        <li>Type: {{ticket.ticket_type}}</li>
+        <li>Description: {{ticket.description}}</li>
+    </ul>
+</div>
+
+{% endblock content %}

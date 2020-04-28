@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%load static %}
+<html>
+<head>
+	<title>Ticketing</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	 <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ticketing System</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'director_signup' %}">Admin</a></li>
+      <li><a href="{% url 'team_signup' %}">Team</a></li>
+      <li><a href="{% url 'client_signup' %}">Client</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+    <h1> Welcome TO Sticketing :
+       {% if request.user.is_authenticated %}
+          [{{request.user}}]{% else %} <small> Login or signup to continue</small>
+       {% endif %}
+ </h1>
+ <h6><a class="btn btn-primary" href="{%url 'login'%}">login</a> <span><a class="btn btn-primary" href="{% url 'logout'%}">logout</a></span></h6>
+	{% block content %}
+			{% endblock %}
+</div>
+</body>
+</html>
